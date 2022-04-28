@@ -35,6 +35,9 @@
             this.butAdd = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.listArticles = new System.Windows.Forms.ListView();
+            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.url = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -91,12 +94,34 @@
             // 
             // listArticles
             // 
+            this.listArticles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.id,
+            this.title,
+            this.url});
+            this.listArticles.FullRowSelect = true;
             this.listArticles.HideSelection = false;
             this.listArticles.Location = new System.Drawing.Point(12, 108);
             this.listArticles.Name = "listArticles";
             this.listArticles.Size = new System.Drawing.Size(776, 330);
             this.listArticles.TabIndex = 6;
             this.listArticles.UseCompatibleStateImageBehavior = false;
+            this.listArticles.View = System.Windows.Forms.View.Details;
+            this.listArticles.DoubleClick += new System.EventHandler(this.listArticles_DoubleClick);
+            // 
+            // id
+            // 
+            this.id.Text = "No";
+            this.id.Width = 100;
+            // 
+            // title
+            // 
+            this.title.Text = "Title";
+            this.title.Width = 200;
+            // 
+            // url
+            // 
+            this.url.Text = "URL";
+            this.url.Width = 300;
             // 
             // ArticleReader
             // 
@@ -128,6 +153,9 @@
         private System.Windows.Forms.Button butAdd;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListView listArticles;
+        private System.Windows.Forms.ColumnHeader id;
+        private System.Windows.Forms.ColumnHeader title;
+        private System.Windows.Forms.ColumnHeader url;
     }
 }
 

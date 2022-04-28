@@ -18,3 +18,4 @@ F:\C#\ArticleReader\ArticleReader\ArticleReader\bin\Debug\EntityFramework.xml
 F:\C#\ArticleReader\ArticleReader\ArticleReader\bin\Debug\EntityFramework.SqlServer.xml
 F:\C#\ArticleReader\ArticleReader\ArticleReader\bin\Debug\System.Data.SQLite.xml
 F:\C#\ArticleReader\ArticleReader\ArticleReader\obj\Debug\ArticleReader.csproj.CopyComplete
+F:\C#\ArticleReader\ArticleReader\ArticleReader\obj\Debug\ArticleReader.PdfViewer.resources

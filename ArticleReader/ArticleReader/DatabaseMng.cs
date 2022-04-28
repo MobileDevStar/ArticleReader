@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DbModelNameSpace;
 
 namespace DbMngNameSpace
 {
@@ -47,5 +48,36 @@ namespace DbMngNameSpace
             }
         }
 
+        public void InsertArticle(string title, string url)
+        {
+            SQLiteCommand cmd = null;
+            string sql = "INSERT INTO articles (title, url) VALUES('" + title + "', '" + url + "');";
+
+            cmd = conn.CreateCommand();
+            cmd.CommandText = sql;
+
+            cmd.ExecuteNonQuery();
+        }
+        
+        public List<ArticleModel> GetAllArticles()
+        {
+            SQLiteDataReader sqlite_datareader;
+            SQLiteCommand cmd;
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM articles ORDER BY title ASC; ";
+
+            sqlite_datareader = cmd.ExecuteReader();
+            List<ArticleModel> dict = new List<ArticleModel>();
+
+            while (sqlite_datareader.Read())
+            {
+                dict.Add(new ArticleModel(sqlite_datareader.GetInt32(0), sqlite_datareader.GetString(1), sqlite_datareader.GetString(2)));
+            }
+
+            sqlite_datareader.Close();
+            sqlite_datareader.Dispose();
+
+            return dict;
+        }
     }
 }
