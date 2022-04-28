@@ -14,12 +14,7 @@ namespace DbMngNameSpace
         public DatabaseMng()
         {
             conn = OpenConnection("Data Source=articles.sqlite");
-            initDatabase();
-        }
-
-        ~DatabaseMng()
-        {
-            conn.Close();
+            InitDatabase();
         }
 
         private SQLiteConnection OpenConnection(string name)
@@ -32,7 +27,7 @@ namespace DbMngNameSpace
             return sqlite_conn;
         }
 
-        private void initDatabase()
+        private void InitDatabase()
         {
             SQLiteCommand cmd = null;
             string sql = "CREATE TABLE IF NOT EXISTS articles ( id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, title VARCHAR(500) NOT NULL, " +
@@ -42,6 +37,14 @@ namespace DbMngNameSpace
             cmd.CommandText = sql;
 
             cmd.ExecuteNonQuery();
+        }
+
+        public void CloseConnection()
+        {
+            if (conn != null)
+            {
+                conn.Close();
+            }
         }
 
     }

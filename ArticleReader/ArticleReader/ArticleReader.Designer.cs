@@ -112,6 +112,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ArticleReader";
             this.Text = "ArticleReader";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ArticleReader_FormClosed);
             this.Load += new System.EventHandler(this.ArticleReader_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
